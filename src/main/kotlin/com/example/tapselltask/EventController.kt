@@ -26,10 +26,14 @@ class EventController(
 
         } else if (advertiserId.isPresent) {
 
+            val id:Int = Integer.parseInt(advertiserId.get())
+            eventService.getAdvertiserEvents(id)
             return ResponseEntity.ok("wait for income of advertiser with ID: ${advertiserId.get()}")
 
         } else if (publisherId.isPresent) {
 
+            val id:Int = Integer.parseInt(publisherId.get())
+            eventService.getPublisherEvents(id)
             return ResponseEntity.ok("wait for income of advertiser with ID: ${publisherId.get()}")
 
         } else {
