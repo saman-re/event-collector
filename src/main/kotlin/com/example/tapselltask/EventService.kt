@@ -18,4 +18,16 @@ class EventService {
         val response:EventResponse? = builder.build().get().uri(url).retrieve().bodyToMono(EventResponse::class.java).block()
         println(response!!.events[0].toString())
     }
+
+    fun getAdvertiserEvents(id: Int){
+
+        //TODO this method must find the event base on advertiser ID
+
+    }
+
+    fun getPublisherEvents(id:Int){
+
+        //TODO this method must find the event base on publisher ID
+
+    }
 }
