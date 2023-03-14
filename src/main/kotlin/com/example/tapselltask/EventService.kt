@@ -5,7 +5,10 @@ import org.springframework.stereotype.Service
 import org.springframework.web.reactive.function.client.WebClient
 
 @Service
-class EventService {
+class EventService(
+    @Autowired
+    val eventRepository: EventRepository
+) {
 
     val builder = WebClient.builder().codecs { codecs -> codecs.defaultCodecs().maxInMemorySize(1000 * 1024) }
     val startTime:Long = 1
