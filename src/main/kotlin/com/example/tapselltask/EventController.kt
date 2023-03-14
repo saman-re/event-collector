@@ -1,6 +1,7 @@
 package com.example.tapselltask
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
@@ -15,10 +16,27 @@ class EventController(
 ) {
 
     @GetMapping
-    fun checkHealth(
-        @RequestParam(name = "publisherId", required = false) advertiserId: Optional<String>,
+    fun eventsReport(
+        @RequestParam(name = "advertiserId", required = false) advertiserId: Optional<String>,
         @RequestParam(name = "publisherId", required = false) publisherId: Optional<String>
-    ): String {
-        return "salam $advertiserId $publisherId"
+    ): ResponseEntity<String> {
+        if (advertiserId.isPresent and publisherId.isPresent) {
+
+            return ResponseEntity.badRequest().body("specify only one of advertiser or publisher ID")
+
+        } else if (advertiserId.isPresent) {
+
+            return ResponseEntity.ok("wait for income of advertiser with ID: ${advertiserId.get()}")
+
+        } else if (publisherId.isPresent) {
+
+            return ResponseEntity.ok("wait for income of advertiser with ID: ${publisherId.get()}")
+
+        } else {
+
+            return ResponseEntity.badRequest().body("required at least one of advertiser or publisher Id")
+
+        }
+
     }
 }
