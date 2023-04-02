@@ -1,4 +1,4 @@
-package com.example.tapselltask
+package com.example.tapselltask.event
 
 class EventResponse(
     val startTime:Long,
