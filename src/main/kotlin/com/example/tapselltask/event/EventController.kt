@@ -1,4 +1,4 @@
-package com.example.tapselltask
+package com.example.tapselltask.event
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
