@@ -1,5 +1,7 @@
 package com.example.tapselltask.event
 
+import io.swagger.annotations.Api
+import io.swagger.annotations.ApiOperation
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -10,11 +12,13 @@ import java.util.Optional
 
 @RestController
 @RequestMapping(path = ["/api/v1"])
+@Api(value = "Event organizer", description = "get income or expense by detail")
 class EventController(
     @Autowired
     private val eventService: EventService
 ) {
 
+    @ApiOperation(value = "Returns the advertiser income or publisher expense base on given Id")
     @GetMapping
     fun eventsReport(
         @RequestParam(name = "advertiserId", required = false) advertiserId: Optional<String>,
