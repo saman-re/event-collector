@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  api:
+    build: .
+    container_name: api
+    restart: always
+    depends_on:
+      - postgres
+    ports:
+      - 8080:8080
+
+  events:
+    image: tapsell/challenge:coding-challenge-api
+    container_name: events
+    restart: always
+    ports:
+      - 8071:8071
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    volumes:
+      - pgdata:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=events
+      - POSTGRES_USER=tapsell
+      - POSTGRES_PASSWORD=12345
+
+volumes:
+  pgdata:
