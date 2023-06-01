@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>tapsell-task</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>tapsell-task</name>
+    <artifactId>server</artifactId>
+    <version>1</version>
+    <name>server</name>
     <description>tapsell-task</description>
     <properties>
         <java.version>17</java.version>
